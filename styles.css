@@ -7,6 +7,11 @@
     margin: 4px;
 }
 
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
 .section {
     margin-bottom: 10px;
 }
