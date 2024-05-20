@@ -1,0 +1,23 @@
+#contact-info {
+    text-align: center;
+}
+
+
+* {
+    margin: 4px;
+}
+
+.section {
+    margin-bottom: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-location {
+    text-align: right;
+}
+
+
