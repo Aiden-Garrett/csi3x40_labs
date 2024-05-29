@@ -1,9 +1,10 @@
-let board;
-let pacman;
-let ghost;
-let fruit;
 
 function createGame(m) {
+    let board;
+    let pacman;
+    let ghost;
+    let fruit;
+
     board = new Array(m);
     pacman = Math.floor(Math.random() * m);
 
@@ -26,7 +27,34 @@ function createGame(m) {
             board[i] = ".";
         }
     }
+    return board;
 }
 
-createGame(10)
-console.log(board)
+
+function moveLeft(game) {
+    // i = 1 since cannot move i=0 to the left
+    for (let i = 1; i < game.length; i++) {
+        if (game[i] === "C") {
+            game[i - 1] = "C.";
+            game[i] = "";
+            return game;
+        }
+    }
+    return game;
+}
+
+function moveRight(game) {
+    for (let i = 0; i < game.length - 1; i++) {
+        if (game[i] === "C") {
+            game[i + 1] = "C.";
+            game[i] = "";
+            return game;
+        }
+    }
+    return game;
+}
+
+
+console.log(createGame(10))
+console.log(moveLeft([ ".", ".", ".", ".", "C", ".", ".", "@", ".", "^." ]))
+console.log(moveRight([ ".", ".", ".", ".", "C", ".", ".", "@", ".", "^." ]))
