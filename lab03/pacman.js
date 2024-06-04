@@ -35,7 +35,7 @@ function moveLeft(game) {
     // i = 1 since cannot move i=0 to the left
     for (let i = 1; i < game.length; i++) {
         if (game[i] === "C") {
-            game[i - 1] = "C.";
+            game[i - 1] = "C";
             game[i] = "";
             return game;
         }
@@ -46,7 +46,7 @@ function moveLeft(game) {
 function moveRight(game) {
     for (let i = 0; i < game.length - 1; i++) {
         if (game[i] === "C") {
-            game[i + 1] = "C.";
+            game[i + 1] = "C";
             game[i] = "";
             return game;
         }
