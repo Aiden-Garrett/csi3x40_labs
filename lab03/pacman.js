@@ -1,8 +1,8 @@
-
+var ghost;
 function createGame(m) {
-    let board;
+    var board;
     let pacman;
-    let ghost;
+    // var ghost;
     let fruit;
 
     board = new Array(m);
@@ -27,6 +27,7 @@ function createGame(m) {
             board[i] = ".";
         }
     }
+
     return board;
 }
 
@@ -75,8 +76,46 @@ function isComplete(board){
     return true;
 }
 
+function moveGhost(game){
+    let dir = Math.random()
+
+    game[ghost] = ".";
+
+    if (dir < 0.5) {
+        dir = 1;
+        if (ghost+dir === game.length) {
+            ghost = 0;
+        } else {
+            ghost += dir;
+        }
+
+    } else {
+        dir = -1
+        if (ghost+dir=== -1) {
+            ghost = game.length-1;
+        } else {
+            ghost += dir;
+        }
+    }
+
+    game[ghost] = "^.";
+    return console.log(game);
+}
+
+
 console.log(createGame(10))
 console.log(moveLeft([ ".", ".", ".", ".", "C", ".", ".", "@", ".", "^." ]))
 console.log(moveRight([ ".", ".", ".", ".", "C", ".", ".", "@", ".", "^." ]))
 console.log(isComplete([ "", "", "", "", "C", "", "", "@", "", "^" ]))
 console.log(moveLeft([ "", "", "", "", "C", "", "", "@", "", "^" ]))
+
+
+function startGame() {
+    board = createGame(10);
+    setTimeout(() => {
+        setInterval(()=> {
+            moveGhost(board)
+        }, 1000);
+    }, 1000);
+}
+startGame();
